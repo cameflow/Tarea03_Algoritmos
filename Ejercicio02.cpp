@@ -134,11 +134,11 @@ class linea
 std::vector<int> sacarLongitudes(std::vector<std::string> words);
 
 
-int main(int argc, const char * argv[])
+int main()
 {
-    int tamLinea = 26;
+    int tamLinea = 22;
     int b = 2;
-    std::vector<std::string> texto = {"Castillote", "Castillote", "alex", "Castillo", "Castillote", "Castillotote", "Castillotote"};
+    std::vector<std::string> texto = {"Pablito", "Clavo", "un", "clavito", "en", "la", "calva"};
     std::vector<int> longitudes = sacarLongitudes(texto);
 
     vector<linea> parrafo;
