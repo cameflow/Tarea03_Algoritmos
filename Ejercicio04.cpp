@@ -1,3 +1,10 @@
+/*
+  Este problema resuelve las parejas que deben de ser estables
+  De backtracking ya que le asignas un hombre a una mujer pero ese puede no ser el final
+  Se puede encontrar una mejor solución entonces se tiene que regesar a ajustar los valores
+  La complejidad sería O(n^2)
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>

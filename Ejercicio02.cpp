@@ -13,40 +13,40 @@ using namespace std;
 //------------------Declaración e implementación de la clase linea --------------//
 class linea
 {
-    int maxTam;  //Tamaño máximo de la linea
+    int tamaniolinea;  //Tamaño máximo de la linea
     int b;    //Tamañode los espacios de la linea
-    int total; n
+    int espaciosOcupados;
     vector<int> palabras; //Las palabras que están en la linea
   public:
     //Constructor de la liena
-    linea(int maxTam,int b)
+    linea(int tamaniolinea,int b)
     {
-      this->maxTam = maxTam;
+      this->tamaniolinea = tamaniolinea;
       this->b = b;
-      total = 0;
+      espaciosOcupados = 0;
     }
 
     //Función para insertar una palabra
     bool insertarPalabra(int palabra)
     {
-      if(getLongitud()+palabra+b > maxTam)
+      if(getLongitud()+palabra+b > tamaniolinea)
       {
-        if(!pasarSiguiente(palabra))
+        if(!saltarLinea(palabra))
         {
           while(b>=2)
           {
             b--;
-            if (getLongitud()+palabra <= maxTam)
+            if (getLongitud()+palabra <= tamaniolinea)
             {
               palabras.push_back(palabra);
-              total += palabra;
+              espaciosOcupados += palabra;
               return true;
             }
           }
         }
         else
         {
-          while(getLongitud() != maxTam)
+          while(getLongitud() != tamaniolinea)
           {
             b++;
           }
@@ -56,40 +56,40 @@ class linea
       else
       {
         palabras.push_back(palabra);
-        total += palabra;
+        espaciosOcupados += palabra;
         return true;
       }
       return false;
     }
 
     //Función para saber si la palabra se debe de pasar a la siguiente linea
-    bool pasarSiguiente(int palabra)
+    bool saltarLinea(int palabra)
     {
       int original = b;
-      unsigned long costoAchicar = 0;
-      unsigned long costoPasarSiguiente = 0;
+      unsigned long costoReducir = 0;
+      unsigned long costoAmpliar = 0;
       bool cabe = false;
       while(b>=2)
       {
         b--;
-        costoAchicar++;
+        costoReducir++;
       }
-      if (getLongitud()+palabra <= maxTam)
+      if (getLongitud()+palabra <= tamaniolinea)
       {
         cabe = true;
       }
       b = original;
-      while(getLongitud() != maxTam)
+      while(getLongitud() != tamaniolinea)
       {
         b++;
-        costoPasarSiguiente++;
+        costoAmpliar++;
       }
-      costoAchicar = palabras.size()* costoAchicar;
-      costoPasarSiguiente = (palabras.size()-1)* costoPasarSiguiente;
+      costoReducir = palabras.size()* costoReducir;
+      costoAmpliar = (palabras.size()-1)* costoAmpliar;
       b = original;
       if (cabe == true)
       {
-        return costoAchicar > costoPasarSiguiente;
+        return costoReducir > costoAmpliar;
       }
       else
       {
@@ -110,13 +110,13 @@ class linea
     //Función para obtener la longitud de la linea
     unsigned long getLongitud()
     {
-      return total+(b*(palabras.size()-1));
+      return espaciosOcupados+(b*(palabras.size()-1));
     }
 
     //Función para limpiar la linea
     void clear()
     {
-      total = 0;
+      espaciosOcupados = 0;
       palabras.clear();
     }
 

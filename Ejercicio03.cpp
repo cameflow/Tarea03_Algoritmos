@@ -1,4 +1,6 @@
 /*
+  Este algoritmo es programación dinámica ya que va guardando los valores y si encuentra uno mas largo lo va sustituyendo
+  La complejidad del algoritmo es O(n^3)
 */
 #include <iostream>
 
