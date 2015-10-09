@@ -1,3 +1,5 @@
+/*
+*/
 #include <iostream>
 
 //----------------------Declaración de funciones---------------------//
@@ -6,8 +8,8 @@ std::string obtenerSubsecuencia(const std::string primera, const std::string seg
 
 int main()
 {
-  std::string A = "anitalavalatina";
-  std::string B = "lavaderodetilatina";
+  std::string A = "aaa";
+  std::string B = "aba";
   std::string C = "juan";
 
   std::cout << "Subsecuencia mas larga es: " << obtenerSubsecuencia(A,B) << std::endl;

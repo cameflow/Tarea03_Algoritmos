@@ -1,6 +1,11 @@
+/*
+  Problema sobre el camionero que necesita hacer paradas
+  Es un algoritmo ávido ya que decide cuál es la mejor parada en el momento
+  Su complejidad es O(n)
+*/
+
 #include <iostream>
 #include <vector>
-
 
 //-------------Declaración de las funciones--------------//
 
